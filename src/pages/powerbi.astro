@@ -1,3 +1,8 @@
+---
+const pageTitle = "Powerbi";
+import "../styles/global.css";
+---
+
 <a href="/">Home</a>
 <a href="/about/">About</a>
 <a href="/powerbi/">Powerbi</a>
@@ -9,10 +14,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <h1>Análisis en Tiempo Real con Powerbi, Python y Bash</h1>
+    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
