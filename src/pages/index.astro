@@ -1,10 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+const pageTitle = "Inicio";
 import Greeting from "../components/Greeting";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <h2>Bienvenido a mi blog</h2>
+  <Greeting
+    client:load
+    messages={[
+      "Hej",
+      "Hallo",
+      "Hola",
+      "Habari",
+      "Salut",
+      "Ciao",
+      "Oi",
+      " Привет",
+      " مرحبا",
+      " Merhaba",
+      " 你好",
+      " こんにちは",
+      "안녕",
+      "नमसते",
+      "Habari",
+      "Γειά σου",
+      "Cześć",
+      " Ahoj",
+      " Szia",
+      "Здравей",
+      " Привіт",
+      " سلام",
+      " שלום",
+      "Hai",
+      " หวัดดี",
+      "Chào",
+      "Kamusta",
+    ]}
+  />
 </BaseLayout>
