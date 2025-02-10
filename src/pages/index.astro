@@ -1,22 +1,10 @@
 ---
-const pageTitle = "Home";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Home Page";
+import Greeting from "../components/Greeting";
 ---
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/powerbi/">Powerbi</a>
-<a href="/blog/">Blog</a>
-
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <h1>Bienvenido a mi blog ññññ</h1>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+</BaseLayout>

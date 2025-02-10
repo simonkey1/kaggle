@@ -1,7 +1,10 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Blogpost from "../components/Blogpost.astro";
 const pageTitle = "My Astro Learning Blog";
-
-import "../styles/global.css";
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true })
+);
 
 const identity = {
   firstName: "Sarah",
@@ -13,7 +16,7 @@ const identity = {
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = "navy";
@@ -22,12 +25,8 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{pageTitle}</title>
-
-  <style define:vars={{ skillColor, fontWeight, textCase }}>
+<BaseLayout pageTitle={pageTitle}>
+  <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
     h1 {
       color: purple;
       font-size: 4rem;
@@ -39,20 +38,14 @@ const textCase = "uppercase";
       text-transform: var(--textCase);
     }
   </style>
-</head>
 
-<body>
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/powerbi/">PowerBI</a>
-
-  <h1>{pageTitle}</h1>
   <p>This is where I will post about my journey learning Astro.</p>
   <ul>
-    <li><a href="/posts/post-1/">Post 1</a></li>
-    <li><a href="/posts/post-2/">Post 2</a></li>
-    <li><a href="/posts/post-3/">Post 3</a></li>
+    {
+      allPosts.map((post: any) => (
+        <Blogpost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
   </ul>
 
   <p>Here are a few facts about me:</p>
@@ -83,4 +76,4 @@ const textCase = "uppercase";
       <p>My goal is not 3 days.</p>
     )
   }
-</body>
+</BaseLayout>

@@ -1,33 +1,18 @@
 ---
 const pageTitle = "Powerbi";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/powerbi/">Powerbi</a>
-<a href="/blog/">Blog</a>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... and my new Astro site!</h2>
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site!</h2>
+  <p>
+    Estoy trabajando en el tutorial introductorio de Astro. ¡Esta es la segunda
+    página de mi sitio web y la primera que construí yo mismo!
+  </p>
 
-    <p>
-      Estoy trabajando en el tutorial introductorio de Astro. ¡Esta es la
-      segunda página de mi sitio web y la primera que construí yo mismo!
-    </p>
-
-    <p>
-      Este sitio se actualizará a medida que complete más del tutorial, así que
-      sigue revisándolo para ver cómo va mi progreso.
-    </p>
-  </body>
-</html>
+  <p>
+    Este sitio se actualizará a medida que complete más del tutorial, así que
+    sigue revisándolo para ver cómo va mi progreso.
+  </p>
+</BaseLayout>
