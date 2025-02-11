@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+import "prismjs/themes/prism-tomorrow.css";
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
-  <p>Written by {frontmatter.author}</p>
+  <p>Publicado en {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p>Escrito por {frontmatter.author}</p>
   <p>{frontmatter.description}</p>
-  <p>{frontmatter.tags.join(", ")}</p>
   <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 
   <div class="tags">
@@ -23,6 +23,7 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
+  /* Estilos generales */
   a {
     color: #00539f;
   }
@@ -40,4 +41,59 @@ const { frontmatter } = Astro.props;
     font-size: 1.15em;
     background-color: #f8fcfd;
   }
+
+  /* 🌟 Bloques de código mejorados */
+  pre {
+    position: relative;
+  }
+  button.copy-button {
+    position: absolute;
+    inset: 5px 5px auto auto;
+    width: 1em;
+    height: 1em;
+    border: 1px solid;
+    box-shadow: -3px 3px #999;
+  }
+
+  button.pre code {
+    background: none !important; /* Evita fondos duplicados */
+    padding: 0;
+  }
+
+  /* 💻 Agregar el prefijo "$" solo en bloques de Bash/Terminal */
+  pre.language-bash::before,
+  pre.language-shell::before {
+    content: "$ ";
+    color: #8be9fd;
+    font-weight: bold;
+  }
 </style>
+
+<!-- 📋 Script para botón de copiar código -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("pre").forEach((block) => {
+      const codeBlock = block.querySelector("code");
+      if (!codeBlock) return; // Asegura que <code> existe dentro de <pre>
+
+      // Crear el botón
+      const btn = document.createElement("button");
+      btn.className = "copy-button";
+      btn.innerHTML = "📋";
+
+      // Evento de copiar
+      btn.onclick = () => {
+        const text = codeBlock.innerText.trim(); // Copia solo el texto del código
+        navigator.clipboard.writeText(text);
+        btn.innerText = "✅ Copiado!";
+        setTimeout(() => (btn.innerHTML = "📋"), 2000);
+      };
+
+      // Asegurar que <pre> tenga posición relativa
+      block.style.position = "relative";
+
+      // 📌 Insertar el botón ANTES del <code> dentro de <pre>
+      block.insertBefore(btn, codeBlock);
+    });
+  });
+</script>

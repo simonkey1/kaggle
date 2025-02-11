@@ -1,25 +1,53 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "My First Blog Post"
+title: "Análisis en Tiempo Real del Suministro Eléctrico de Chile"
 pubDate: 2022-07-01
-description: "This is the first post of my new Astro blog."
+description: "Un tutorial de cómo extraer datos con playwright, procesarlos con pandas y visualizar en Powerbi."
 author: "Simon Gomez"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "The Astro logo on a dark background with a pink glow."
-tags: ["astro", "blogging", "learning in public"]
+tags: ["Powerbi", "Python", "Web Scraping"]
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+## Introducción
 
-## What I've accomplished
+Hace poco descubrí la página de la Superintendecia de Electricidad y Combustibles (SEC). Me llamó la atención en particular su sección de métricas e información de los cortes de luz a nivel nacional, debido a que noté que hay un gran margen de mejora en su accesibilidad y visualización de los datos para el usuario.
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+## ¿Qué haremos?
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+1. **Preparar nuestro entorno**: primero, instalaremos las dependencias necesarias para el proyecto.
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+2. **Extracción de los datos**: aprenderemos a realizar web scraping con Playwright.
 
-## What's next
+3. **Transformación de los datos**: necesitaremos limpiar y procesar los datos extraídos con Pandas.
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+4. **Visualización de los datos**: finalmente, visualizaremos los datos en Powerbi.
+
+## Entorno de Desarrollo
+
+Para este proyecto, necesitaremos instalar las siguientes dependencias: Playwright, Pandas y Powerbi.
+
+Les recomiendo crear un entorno virtual para instalar las dependencias. Para ello, decidan un directorio donde quieran crear el entorno virtual y ejecuten el siguiente comando en la terminal:
+
+```python
+
+        python -m venv "nombre-del-entorno"-env
+
+
+```
+
+Una vez creado el entorno virtual, actívenlo con el siguiente comando:
+
+```bash
+
+        source "nombre-del-entorno"-env/bin/activate
+
+
+```
+
+```python
+
+        print("Hola Mundo")
+
+```
