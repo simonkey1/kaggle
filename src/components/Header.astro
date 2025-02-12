@@ -4,10 +4,15 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header>
-  <nav>
-    <Hamburger />
+<header class="bg-orange-400 text-white p-4">
+  <nav class="flex justify-between items-center max-w-5xl mx-auto">
+    <!-- Botón de tema oscuro -->
     <ThemeIcon />
+
+    <!-- Botón de menú hamburguesa para móviles -->
+    <Hamburger />
+
+    <!-- Enlaces de navegación -->
     <Navigation />
   </nav>
 </header>

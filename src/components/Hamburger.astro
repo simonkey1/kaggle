@@ -7,3 +7,21 @@
   <span class="line"></span>
   <span class="line"></span>
 </div>
+
+<button class="md:hidden p-4" id="menu-toggle">
+  <div class="w-8 h-1 bg-white mb-2"></div>
+  <div class="w-8 h-1 bg-white mb-2"></div>
+  <div class="w-8 h-1 bg-white"></div>
+</button>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  if (menuToggle) {
+    menuToggle.addEventListener("click", function () {
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks) {
+        // Add your code here to handle the navLinks
+      }
+    });
+  }
+</script>
